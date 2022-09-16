@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DayPlanner Calculator</title>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <div id="header" class="card">
+            <h1>DayPlanner Calculator</h1>
+            <p>Time Budgeting Tools and Resources</p>
+        </div>
+ 
+        <!-- Main Content -->
+        
+        <div id="main">
+            <p>Plan Your Day...</p>
+        </div>
+     
+
+
+<!--
+   <div class="kanban">
+    <div class="kanban__column">
+        <div class="kanban__column-title">Not Started</div>
+        <div class="kanban__items">
+            <div contenteditable class="kanban__item-input">Wash the dishes</div>
+            <div class="kanban__dropzone"></div>
+        </div>
+        <button class="kanban__add-item" type="button">+ Add</button>
+    </div> 
+</div>
+-->
+           
+        <div class="app">
+            
+            <h1>24 Hour<h1>
+                <h1>Time Calculation</h1>
+
+            <div class="balance-container">
+                <!--Balance information is rendered here dynamically-->
+                <div id="balance"> </div>
+            
+            </div>
+
+            <div class="scheduledHours-container">
+                
+                <div class="hoursPlanned-container">
+                    <h2>Hours Planned</h2>
+                    <div id="plannedHours">$200</div>
+                </div>
+
+                <div class="hoursRemaining-container">
+                    <h2>Hours Remaining</h2>
+                    <div id="hoursRemaining">$1200</div>
+                </div>
+
+
+
+                
+            </div>
+
+            <div class="scheduledTasks-container">
+                <h2>Current Schedule Tasks:</h2>
+                <ul id="task">
+                    
+                </ul>
+            </div>
+
+            <div class="form-container">
+                <h2>Add New Task Items:</h2>
+                <form onsubmit="return false;">
+                    <label for="name">Task Name</label>
+                    <input id="name" type="text">
+                    <label for="amount">Time Amount</label>
+                    <input id="amount" type="number">
+                    <button id="plannedHoursBtn">Add Task Item</button>
+                   
+                </form>
+            </div>
+        </div>
+
+
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>    
+  <!-- Footer -->
+  <div id="footer">
+    <p class="text-center">Copyright &copy; 2022 DayPlanner Calculator Website </p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
+        <script src="script.js"></script>
+        
+    </body>
+</html>

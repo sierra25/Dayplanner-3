@@ -1,0 +1,202 @@
+:root {
+    --box-shadow: 0px 1px 4px 1px rgba(199,199,199,1);
+    --plannedHours: green;
+    --hoursRemaining: red;
+}
+
+  #header {
+    background: #F487B6;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 400px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  #main {
+    float: left;
+    width: 80%;
+  }
+
+  #footer {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+      
+  }
+
+
+
+/*  */
+
+
+
+.app {
+    font-family: 'Rubik', 'sans-serfi';
+    width: 600px;
+    border-right: 1px solid #cccccc;
+    padding-right: 120px;
+    padding-left: 120px;
+    margin-top: 120px;
+}
+
+.app h1 {
+    text-align: left;
+}
+
+h2 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.balance-container #balance {
+    font-size: 1.5em;
+}
+
+.scheduledHours-container {
+    display: flex;
+    box-shadow: var(--box-shadow);
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.hoursPlanned-container {
+    padding-right: 20px;
+}
+
+.hoursRemaining-container {
+    border-left: 1px solid #cccccc;
+    padding-left: 20px;
+   
+}
+
+#plannedHours, #hoursRemaining {
+    font-size: 1.3em;
+}
+
+#plannedHours {
+    color: var(--plannedHours);
+}
+
+#hoursRemaining {
+    color: var(--hoursRemaining);
+}
+
+.scheduledTasks-container {
+    margin-top: 40px;
+}
+
+#task {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#task li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+#task li span {
+    display: inline-block;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+#task li .plannedHours-amt {
+    background-color: var(--plannedHours);
+}
+
+#task li .hoursRemaining-amt {
+    background-color: var(--hoursRemaining);
+}
+
+#task li button {
+    padding: 5px 10px 5px 10px;
+}
+
+.form-container {
+    margin-top: 40px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form label {
+    padding-bottom: 10px;
+}
+
+.form-container form input {
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.form-container form button {
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: white;
+}
+
+#plannedHoursBtn {
+    background-color: var(--plannedHours);
+}
+
+#hoursRemainingBtn {
+    background-color: var(--hoursRemaining);
+}
+
+.kanban{
+width: 120px;
+background: #F487B6;
+flex-direction: row;
+display: flex;
+box-shadow: var(--box-shadow);
+align-items: right;
+justify-content: center;
+
+padding-top: 20px;
+margin-top: 20px;
+
+
+
+}
