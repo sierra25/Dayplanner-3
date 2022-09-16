@@ -2,7 +2,7 @@ var state = {
     balance: 1000,
     plannedHours: 400,
     hoursRemaining: 100,
-    scheduledTasks: [
+    transactions: [
         
     ]
 }
@@ -10,7 +10,7 @@ var state = {
 var balanceEl = document.querySelector('#balance');
 var plannedHoursEl = document.querySelector('#plannedHours');
 var hoursRemainingEl = document.querySelector('#hoursRemaining');
-var scheduledTasksEl = document.querySelector('#task');
+var transactionsEl = document.querySelector('#transaction');
 var plannedHoursBtnEl = document.querySelector('#plannedHoursBtn');
 var hoursRemainingBtnEl = document.querySelector('#hoursRemainingBtn');
 var nameInputEl = document.querySelector('#name');
@@ -40,20 +40,20 @@ function initListeners() {
 
 function onAddPlannedHoursClick() {
     
-    addScheduledTask(nameInputEl.value, amountInputEl.value, 'plannedHours');
+    addTransaction(nameInputEl.value, amountInputEl.value, 'plannedHours');
     
 }
 
-function addScheduledTask(name, amount, type) {
+function addTransaction(name, amount, type) {
     if (name !== '' && amount !== '') {
-        var task = { 
+        var transaction = { 
             id: uniqueId(),
             name: name, 
             amount: parseInt(amount), 
             type: type
         };
 
-        state.scheduledTasks.push(task);
+        state.transactions.push(transaction);
 
 
 //Pie Chart
@@ -110,20 +110,20 @@ var barColors = [
 }
 
 function onAddHoursRemainingClick() {
-    addScheduledTask(nameInputEl.value, amountInputEl.value, 'hoursRemaining');
+    addTransaction(nameInputEl.value, amountInputEl.value, 'hoursRemaining');
 }
 
 function onDeleteClick(event) {
     var id = parseInt(event.target.getAttribute('data-id'));
     var deleteIndex;
-    for (var i = 0; i < state.scheduledTasks.length; i++) {
-        if (state.scheduledTasks[i].id === id) {
+    for (var i = 0; i < state.transactions.length; i++) {
+        if (state.transactions[i].id === id) {
             deleteIndex = i;
             break;
         }
     }
 
-    state.scheduledTasks.splice(deleteIndex, 1);
+    state.transactions.splice(deleteIndex, 1);
 
     updateState();
 }
@@ -135,8 +135,8 @@ function updateState() {
         item;
   
 
-    for (var i = 0; i < state.scheduledTasks.length; i++) {
-        item = state.scheduledTasks[i];
+    for (var i = 0; i < state.transactions.length; i++) {
+        item = state.transactions[i];
 
         if (item.type === 'plannedHours') {
             plannedHours += item.amount;
@@ -167,16 +167,16 @@ function render() {
   plannedHoursEl.innerHTML = `${state.plannedHours} `;
   hoursRemainingEl.innerHTML = `${state.hoursRemaining}`;
 
-    var taskEl, containerEl, amountEl, item, btnEl;
+    var transactionEl, containerEl, amountEl, item, btnEl;
 
-    scheduledTasksEl.innerHTML = '';
+    transactionsEl.innerHTML = '';
 
-    for (var i = 0; i < state.scheduledTasks.length; i++) {
-        item = state.scheduledTasks[i];
-        taskEl = document.createElement('li');
-        taskEl.append(item.name);
+    for (var i = 0; i < state.transactions.length; i++) {
+        item = state.transactions[i];
+        transactionEl = document.createElement('li');
+        transactionEl.append(item.name);
 
-        scheduledTasksEl.appendChild(taskEl);
+        transactionsEl.appendChild(transactionEl);
 
         containerEl = document.createElement('div');
         amountEl = document.createElement('span');
@@ -203,7 +203,7 @@ function render() {
 
         containerEl.appendChild(btnEl);
 
-        taskEl.appendChild(containerEl);
+        transactionEl.appendChild(containerEl);
     }
 }
 
