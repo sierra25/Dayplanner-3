@@ -7,6 +7,40 @@ var state = {
     ]
 }
 
+
+//Pie Chart
+var xValues = [];
+var yValues = [];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145",
+  "#ffcc00",
+  "#cc99ff",
+  "#00ffff",
+  "#ff0066",
+  "#0000ff",
+  "#dfff00",
+  "#ffbf00",
+  "#ff7f50",
+  "#de3163",
+  "#9fe2bf",
+  "#40e0d0",
+  "#6495ed",
+  "#ccccff",
+  "#808000",
+  "#00FF00",
+  "#800000",
+  "#000080",
+  "#800080"
+  
+];
+
+
+
+
 var balanceEl = document.querySelector('#balance');
 var plannedHoursEl = document.querySelector('#plannedHours');
 var hoursRemainingEl = document.querySelector('#hoursRemaining');
@@ -24,7 +58,9 @@ function init() {
     }
     
     updateState();
+    
     initListeners();
+    
 }
 
 function uniqueId() {
@@ -32,15 +68,19 @@ function uniqueId() {
 }
 
 function initListeners() {
+    
     plannedHoursBtnEl.addEventListener('click', onAddPlannedHoursClick);
     hoursRemainingBtnEl.addEventListener('click', onAddHoursRemainingClick);
+    
+   
 }
 
 
 
 function onAddPlannedHoursClick() {
-    
+   
     addTransaction(nameInputEl.value, amountInputEl.value, 'plannedHours');
+    
     
 }
 
@@ -55,45 +95,8 @@ function addTransaction(name, amount, type) {
 
         state.transactions.push(transaction);
 
-
-//Pie Chart
-var xValues = [];
-var yValues = [];
-var barColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
-];
-
-
-
-
-
-
-
-
-
-        xValues.push(nameInputEl.value);
-        yValues.push(amountInputEl.value);
         
-        new Chart("myChart", {
-            type: "pie",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-              }]
-            },
-            options: {
-              title: {
-                display: true,
-                text: "Pie Chart"
-              }
-            }
-          });
+        
            
            
 
@@ -101,16 +104,24 @@ var barColors = [
 
 
         updateState();
+    
+    
+    
+    
+    
     } else {
         alert('Please enter valid data');
     }
-
+    
     nameInputEl.value = '';
     amountInputEl.value = '';
+    
 }
 
 function onAddHoursRemainingClick() {
+    
     addTransaction(nameInputEl.value, amountInputEl.value, 'hoursRemaining');
+    
 }
 
 function onDeleteClick(event) {
@@ -124,7 +135,7 @@ function onDeleteClick(event) {
     }
 
     state.transactions.splice(deleteIndex, 1);
-
+   
     updateState();
 }
 
@@ -157,13 +168,25 @@ function updateState() {
 
     localStorage.setItem('hoursRemainingTrackerState', JSON.stringify(state))
 
+    
+
+
+
+
+
+
+
     render();
+
+    
+
 }
 
 function render() {
     
   //  balanceEl.innerHTML = `${state.balance}`;
-    
+  
+  
   plannedHoursEl.innerHTML = `${state.plannedHours} `;
   hoursRemainingEl.innerHTML = `${state.hoursRemaining}`;
 
@@ -192,11 +215,20 @@ function render() {
         
 
         amountEl.innerHTML = `${item.amount} hours`;
+        
+
+        xValues.push(item.name);
+        yValues.push(item.amount);
+        
+      
+    
 
         containerEl.appendChild(amountEl);
 
         btnEl = document.createElement('button');
+        
         btnEl.setAttribute('data-id', item.id);
+        
         btnEl.innerHTML = 'X';
 
         btnEl.addEventListener('click', onDeleteClick);
@@ -204,10 +236,37 @@ function render() {
         containerEl.appendChild(btnEl);
 
         transactionEl.appendChild(containerEl);
+        
     }
+    
+     new Chart("myChart", {
+            type: "pie",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "Pie Chart"
+              }
+            }
+          });
+          
+          xValues = [];
+          yValues = [];
+          
 }
 
+
+
+
+        
 init();
+
 
 
 
