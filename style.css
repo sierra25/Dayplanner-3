@@ -6,7 +6,7 @@
 
 /*Main page header*/
   #header {
-    background: #F487B6;
+    background:#F487B6;
     color: #fff;
     padding: 10px;
     margin-bottom: 400px;
@@ -22,6 +22,7 @@
   #main {
     float: left;
     width: 80%;
+   
   }
 
   /*Footer Style */
@@ -51,6 +52,7 @@
     float: left;
     width: 35%;
     margin-top: 100px;
+    
     
   }
   #column2{
@@ -335,4 +337,12 @@ margin-top: 20px;
 
 
 
+}
+
+.page-container{
+  padding-left: 400px;
+  
+}
+#column1{
+ margin-right: 100px;
 }

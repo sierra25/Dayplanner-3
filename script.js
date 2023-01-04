@@ -118,12 +118,13 @@ function addTransaction(name, amount, type) {
     
 }
 
+//adds task item
 function onAddHoursRemainingClick() {
     
     addTransaction(nameInputEl.value, amountInputEl.value, 'hoursRemaining');
     
 }
-
+//deletes task item
 function onDeleteClick(event) {
     var id = parseInt(event.target.getAttribute('data-id'));
     var deleteIndex;
@@ -182,6 +183,7 @@ function updateState() {
 
 }
 
+//displays time balance on the screen 
 function render() {
     
   //  balanceEl.innerHTML = `${state.balance}`;
