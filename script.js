@@ -75,7 +75,10 @@ function initListeners() {
    
 }
 
-
+function hideInitialCanvasImage() { 
+	document.getElementById("initialCanvasImage").style.display="none"; 
+	document.getElementById("myChart").style.display="block"; 
+}
 
 function onAddPlannedHoursClick() {
    
@@ -254,6 +257,7 @@ function render() {
               title: {
                 display: true,
                 text: "Pie Chart"
+            
               }
             }
           });

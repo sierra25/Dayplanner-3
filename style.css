@@ -346,3 +346,10 @@ margin-top: 20px;
 #column1{
  margin-right: 100px;
 }
+
+canvas {
+  
+  background-size: 100% 100%;
+  background-position: bottom 0px left 0px;  
+  background-repeat: no-repeat;
+}
