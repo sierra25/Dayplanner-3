@@ -50,6 +50,7 @@
   }
 .column {
     float: left;
+    margin-left: 0px;
     width: 35%;
     margin-top: 100px;
     
@@ -58,7 +59,7 @@
   #column2{
     margin-left: 10px;
     border-left: 1px solid #cccccc;
-    padding-left: 200px;
+    padding-left: 100px;
    
   }
   
@@ -193,6 +194,7 @@ h2 {
 /*Calculator Style */
 .balance-container #balance {
     font-size: 1.5em;
+    width:max-content;
 }
 
 .scheduledHours-container {
@@ -206,7 +208,7 @@ h2 {
 }
 
 .hoursPlanned-container {
-    padding-right: 20px;
+    padding-right: 30px;
 }
 
 .hoursRemaining-container {
