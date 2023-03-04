@@ -205,6 +205,9 @@ h2 {
     padding-bottom: 20px;
     padding-top: 20px;
     margin-top: 20px;
+    width: 100%;
+    overflow:auto;
+    
 }
 
 .hoursPlanned-container {
@@ -354,4 +357,16 @@ canvas {
   background-size: 100% 100%;
   background-position: bottom 0px left 0px;  
   background-repeat: no-repeat;
+}
+
+/*@media screen and (max-width:750px){
+  .container{
+    width:100%;
+    padding:0px;
+  }
+}*/
+
+.page-container{
+  width: max-content;
+  max-width: 100%
 }
